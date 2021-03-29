@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Adam Thornton)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="./modifications.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Adam Thornton</h2><p class="date">Created: 2021-03-28 Sun 21:20</p>
+</section>
+
+<section>
+<section id="slide-sec-">
+<h2 id="orgeb9b003">Software Necromancy</h2>
+<div class="outline-text-2" id="text-orgeb9b003">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgfde56b8">Adam Thornton, April 2021</h3>
+<p>
+<a href="https://athornton.github.io/software-necromancy/">https://athornton.github.io/software-necromancy/</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/qrcode.png" alt="qrcode.png" />
+</p>
+</div>
+
+<p>
+CC BY-NC 4.0
+</p>
+
+<p>
+<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">https://creativecommons.org/licenses/by-nc/4.0/legalcode</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org3aa6e57">What is Software Necromancy?</h3>
+
+<div class="figure">
+<p><img src="./assets/dr_orpheus.png" alt="dr_orpheus.png" />
+</p>
+</div>
+
+<p>
+(Grand Lodge of BC and Yukon, from <i>Venture Brothers</i> S1 E12)
+</p>
+
+<p>
+Not to be confused with Software Necrophilia.
+</p>
+
+<p>
+Aw, c'mon, who am I kidding?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org8abea38">Starts out simply enough&#x2026;</h3>
+<p>
+A little nostalgia for the machines of one's youth&#x2026;
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/apple_iie_larger.jpg" alt="apple_iie_larger.jpg" />
+</p>
+</div>
+
+<p>
+(Vectronic's Apple World by way of apple-history.com)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org9bfb9be">But these things are a little inconvenient</h3>
+<p>
+I still have my childhood Apple //e; most people don't.
+</p>
+
+<p>
+Fortunately Moore's Law makes faster-than-original speed emulation of
+these systems quite easy.
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/PlayGames.png" alt="PlayGames.png" />
+</p>
+</div>
+
+<p>
+(Gerard Putter)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org839a8c5">But then your desires get&#x2026;more exotic</h3>
+<ul>
+<li><a href="https://www.mamedev.org/">MAME/MESS</a> The arcade emulator, has absorbed MESS and has a
+surprisingly good non-arcade cabinet selection not merely of 8-bit home
+computers but all sorts of things.  Very graphical/console oriented.</li>
+<li><a href="http://simh.trailing-edge.com">SIMH</a> Mostly but not entirely DEC, from PDP-1 to VAX.  Excellent
+non-graphical choice, and much better for remote text-mode access to
+machines.</li>
+<li><a href="http://www.hercules-390.eu/">Hercules</a> IBM 360/370/390/System z emulation.  Fragmented development
+now, quite confusing, maybe stalled, but for historical emulation v3
+works just fine.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgdc40f5d">Or you can go in more recent directions</h3>
+<div class="outline-text-3" id="text-orgdc40f5d">
+</div>
+</section>
+<section id="slide-sec-">
+<h4 id="org55902ba">Working pretty well</h4>
+<ul>
+<li><a href="https://sourceforge.net/projects/previous/">Previous</a> emulates a NextStation</li>
+<li><a href="https://github.com/lenticularis39/axpbox">AXPBox</a> is an Alpha emulator.</li>
+<li><a href="https://www.qemu.org/">QEMU</a> can do Sparc Sun machines and IBM pSeries PowerPCs.</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-">
+<h4 id="orgd05768b">Need some work</h4>
+<ul>
+<li>It looks like <a href="http://www.unlambda.com/index.php?n=Main.Cadr">CADR, the LISP Machine emulator</a> has bitrotted.</li>
+<li>So has <a href="https://people.csail.mit.edu/fredette/tme/index.html">TME (for 68K Sun3 machines)</a></li>
+
+</ul>
+
+<p>
+With a little elbow grease, either might be resurrectable.
+</p>
+
+<p>
+Plenty of other things out there too; these are just the ones I've been
+poking at.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org71cf22f">But isn't that hardware emulation?</h3>
+<p>
+Where's the software necromancy part?
+</p>
+
+<p>
+Well, you need to run <i>something</i> on these computers, don't you?
+</p>
+
+<p>
+Let's start with the operating system.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orge008109">What might you run?</h3>
+<div class="outline-text-3" id="text-orge008109">
+</div>
+</section>
+<section id="slide-sec-">
+<h4 id="org6be7ee2">DEC</h4>
+<div class="outline-text-4" id="text-org6be7ee2">
+</div>
+<ul class="org-ul">
+<li><a id="orgfd4e635"></a>PDP-8<br />
+<p>
+OS/8, and its various languages: Assembly, BASIC, FORTRAN
+</p>
+</li>
+
+<li><a id="orgefb1e58"></a>PDP-11<br />
+<p>
+RT-11, RSX-11, RSTS&#x2026;and the Research Unixes
+</p>
+</li>
+
+<li><a id="orgac39143"></a>VAX<br />
+<ul class="org-ul">
+<li><a id="org700c65c"></a>VMS<br />
+<p>
+SIMH VAX runs VMS/OpenVMS up to 7.3, although you can't get a new
+license anymore and your HP Hobbyist License for VAX runs out on July 1
+at the latest.
+</p>
+</li>
+
+<li><a id="org85c05d5"></a>Unix<br />
+<p>
+4.3BSD, or indeed current NetBSD 9.1
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="slide-sec-">
+<h4 id="org4370ad8">A bit more about VMS</h4>
+<p>
+You can either growl "arrr, matey" and search for
+PAKGEN.C, or you can ask <a href="https://vmssoftware.com/">VMS Software</a> for a hobbyist license for Alpha,
+which runs perfectly well on AXPBox.
+</p>
+
+<p>
+The amd64 port may be available for general-audience early adopters
+this year.  I also made some inquiries about arm64&#x2026;
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="orgde2f238">IBM</h4>
+<div class="outline-text-4" id="text-orgde2f238">
+</div>
+<ul class="org-ul">
+<li><a id="org3b4c9f4"></a>S/360<br />
+<p>
+OS/MFT, OS/MVT, DOS
+</p>
+</li>
+
+<li><a id="orgb11356e"></a>S/370<br />
+<p>
+MVS, VM, DOS/VS, and some weirder options like TSS, MTS, and MUSIC
+</p>
+
+<p>
+Newer than MVS 3.8J. DOS/VS r34, or VM/370 r6, there be very scary
+copyright dragons.
+</p>
+</li>
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org4cf3c66">Unix For Life</h3>
+<p>
+There are easy-to-follow how-to guides for SIMH: PDP-7 Unix ("v0"),
+v1-kernel-with-v2 userland, v5, v6, and v7.  As well as the
+might-as-well-be-modern 2.11BSD (indeed, still actively developed).
+</p>
+
+<p>
+I wrote a blog post <a href="https://athornton.dreamwidth.org/14340.html">exploring this</a> a couple years ago.
+</p>
+
+<p>
+<a href="https://www.tuhs.org/">The Unix Heritage Society (TUHS)</a> is an excellent, and friendly, resource.
+</p>
+
+<p>
+It's surprisingly easy to get something that boots.
+</p>
+
+
+<p>
+&#x2026;maybe a little <i>too</i> easy.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org7afb08f">When one's tastes become more outré</h3>
+<p>
+Multiple <a href="https://github.com/PDP-10/klh10">PDP-10</a> emulators allow you to run not only late versions of
+TOPS-20 but also ITS.  (TOPS-10 and TOPS-20 up to v4 run fine in SIMH.)
+The KA-10 and the KL-10 are quite different machines.
+</p>
+
+<p>
+<a href="https://github.com/charlesUnixPro/dps8m">DPS8M</a> enables the use of Multics.
+</p>
+
+<p>
+Multics is, of course, interesting as a Unix precursor; all of these
+together give you what you need for a critical reevaluation of
+<a href="https://web.mit.edu/~simsong/www/ugh.pdf">The UNIX- HATERS Handbook</a>.  Spoiler: I don't agree with ESR about much,
+but he's right about <i>this</i>.
+</p>
+
+<p>
+I have <a href="https://athornton.dreamwidth.org/14272.html">taken the liberty</a>.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org56f6afa">What resources does all this emulation take?</h3>
+<p>
+You can visit <a href="https://mvsevm.fsf.net">https://mvsevm.fsf.net</a>, and I am happy to create accounts
+for people if playing around with the guest account is too limiting.
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/mvsevm.png" alt="mvsevm.png" />
+</p>
+</div>
+
+<p>
+(me)
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="orgc7a2bed">Hardware</h4>
+<p>
+The first four entries are 36-bit systems (three PDP-10s and a
+Honeywell 6800) and run on a single Raspberry Pi 3B+ running 64-bit
+Ubuntu.
+</p>
+
+<p>
+The Alpha is on an 11-year-old laptop (a Lenovo T410), which was a
+hand-me-down to me.
+</p>
+
+<p>
+The last five entries&#x2013;two VAXen and three PDP-11s&#x2013;run on another
+Raspberry Pi 3B+, this one running 32-bit Raspbian.
+</p>
+
+</section>
+<section id="slide-sec-">
+<h4 id="org8f8c9bd">Software, money, power, and time</h4>
+<p>
+You don't want to run emulators on a host with a narrower word size than
+the guest if you can avoid it.  Hence 64-bit Ubuntu for the things
+emulating 36-bit wordsizes.
+</p>
+
+<p>
+A Raspberry Pi is too slow for the Alpha emulator to be usable.
+</p>
+
+<p>
+Total budget, maybe $100, maybe 50W, and some time (doing it from the
+cookbooks, sequentially, maybe a dozen hours, most of which is spent in
+disk wait).
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org12a185b">But now what?</h3>
+<p>
+There are two directions we can explore from here.  
+</p>
+
+<p>
+The first is simply, how did I build <a href="https://mvsevm.fsf.net">https://mvsevm.fsf.net</a>?
+</p>
+
+<p>
+That's quick and easy to discuss and we will cover it today.
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/tmenu_go.png" alt="tmenu_go.png" />
+</p>
+</div>
+
+<p>
+(me)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgeb1e552">OK, and <i>then</i> what?</h3>
+<p>
+Second: now that we have raised the zombies from the grave, how can we
+put them to work?  What applications do we want to run on the OSes we
+are now able to boot?
+</p>
+
+<p>
+We don't have time for both topics in a single talk.  I'll adress the
+first today and the second at a future date.
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/zombie.png" alt="zombie.png" />
+</p>
+</div>
+
+<p>
+(Bettman archive via Getty Images)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org9272183">Remember the humble terminal server?</h3>
+<p>
+Think back to the early 1990s, just before TCP/IP won.  You'd dial in to
+a modem bank somewhere, and be confronted with a prompt, at which you'd
+type the name of the system you wanted to connect to, and be connected
+through some sort of serial multiplexer to it.
+</p>
+
+<p>
+I wanted that, but with a web front-end.  I wrote it in Go (just because
+I've missed working in Go) and called it "tmenu".
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org8b83f27">Design Considerations</h3>
+<p>
+It needed to be easy to change the target systems.  I would need to
+support, at a minimum:
+</p>
+
+<ul>
+<li>telnet-to-emulated-serial-port-exposed as TCP (the standard SIMH
+method of connection)</li>
+<li>telnet-to-a-TCP-port (for those more modern systems with a TCP/IP
+stack)</li>
+<li>ssh-to-a-TCP-port (VMS and NetBSD, anyway, support SSH, although
+it's too slow to be usable under emulation on a Raspberry Pi, as it
+turns out).</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org0aa24a0">Target definitions file for tmenu</h3>
+<p>
+It's just JSON; read through it, assign a number, and map that to a
+connection method:
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="json" >{"name": "ITS (PDP-10 KA-10)",
+ "host": "36bitpi.fsf.net",
+ "handler": "telnet",
+ "port": 10569
+},
+{"name": "OpenVMS 8.4 (Alpha ES40)",
+ "host": "emualpha.fsf.net",
+ "handler": "telnet",
+ "port": 23
+},
+{"name": "Unix 4.3bsd Quasijarus (MicroVAX 3900)",
+ "host": "quasijarus.fsf.net",
+ "handler": "telnet",
+ "port": 23
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org4f592c5">There's not much to it</h3>
+<p>
+<a href="https://github.com/athornton/tmenu">tmenu</a> is my work; then I used <a href="https://github.com/athornton/gotty">gotty</a> to put a web front-end on it.  I
+point to my fork of gotty since the original is apparently abandoned.
+</p>
+
+<p>
+A simple reverse proxy config in your web server (you do need to enable
+websocket support), a systemd unit file (sigh), and you're done.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org1d21731">Future plans: IBM mainframes</h3>
+<p>
+You may have noticed that although I talked about Hercules, nothing
+available at <a href="https://mvsevm.fsf.net">https://mvsevm.fsf.net</a> runs on S/360-or-subsequent
+architectures.  I am running an MVS 3.8j and a VM/370 system&#x2013;but not
+through mvsevm.
+</p>
+
+<p>
+This is, in a nutshell, because IBM mainframes used a 3270 terminal to
+provide a cursor-addressible environment, and 3270 emulators are less
+ubiquitous than ANSI ASCII terminal emulators.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="orgeb6b481">Bringing 3270 emulation to the Web</h3>
+<p>
+There's no good 3270 terminal emulation accessible from the web anymore.
+There's the badly bitrotted <a href="http://h3270.sourceforge.net/">h3270</a> (it may have always been this awful)
+or you can try to hook up <a href="http://x3270.bgp.nu/">c3270</a>, but it doesn't play well with <a href="https://github.com/xtermjs">xtermjs</a>.
+</p>
+
+<p>
+However, there is <a href="https://github.com/mflorence99/el-3270">el3270</a>, which is an Electron app.  My goal is to take
+its screen model and modify it into a React web app.
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/el3270.png" alt="el3270.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-">
+<h3 id="org9b48b72">Next Episode: <i>Return Of The Necromancer</i></h3>
+<ul>
+<li>Porting modern(ish) software to classic OSes</li>
+<li>Unix v7 as a daily driver</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="./assets/orpheus_2.png" alt="orpheus_2.png" />
+</p>
+</div>
+
+<p>
+(venturebrothers.fandom.com)
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>
