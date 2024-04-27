@@ -3,7 +3,7 @@
 #+REVEAL_HLEVEL: 2
 #+REVEAL_INIT_OPTIONS: slideNumber: h/v
 #+REVEAL_THEME: night
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@3.9.2
+#+REVEAL_ROOT: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_EXTRA_CSS: ./modifications.css
 
